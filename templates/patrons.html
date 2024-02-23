@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+    <head>
+        <title>All patrons</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <header>
+            <a href="/">Home</a>
+        </header>
+        <div>
+            <div class="sub_div">
+                {% for patron in patron_list %}
+                <a href="patron/{{patron}}"><button>{{ patron }}</button></a>
+                {% endfor %}
+            </div>
+            <div class="sub_div">
+                <a href="add"><button>Patron management</button></a>
+            </div>
+        </div>
+    </body>
+</html>

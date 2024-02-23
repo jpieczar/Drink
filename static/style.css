@@ -1,0 +1,27 @@
+body, html {
+    background: radial-gradient(circle, #84cd84, #4acb4a);
+}
+
+.red_alert {
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 0, 0);
+}
+
+header {
+    background: linear-gradient(to right, #83da83, #ffffff);
+    color: white;
+    padding: 10px;
+    text-align: left;
+    border-radius: 10px;
+}
+
+.main_div {
+    padding: 20px;
+    max-width: 80%;
+    text-align: center;
+}
+
+  .sub_div {
+    margin: 10px 0;
+    padding: 10px;
+}

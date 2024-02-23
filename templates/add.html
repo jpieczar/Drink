@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+    <head>
+        <title>Add patron</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <header>
+            <a href="/">Home</a>
+        </header>
+        <div class="main_div">
+            <div class="sub_div">
+                <form action="/add_patron" method="POST">
+                    <table>
+                        <tr>
+                            <td>patron</td>
+                            <td><input type="text" name="username" placeholder="enter name"></td>
+                            <td><input type="text" name="id_number" placeholder="enter ID number"></td>
+                            <td><input type="text" name="weight" placeholder="enter weight (kg)"></td>
+                        </tr>
+                        <tr><td><button type="submit">add</button></td></tr>
+                    </table>
+                </form>
+            </div>
+            <br>
+        </div>
+        <div class="sub_div">
+            {% for patron in patron_list %}
+            <a href="patron/{{patron}}"><button>{{ patron }}</button></a>
+            <form action="/delete_patron" method="POST">
+                <input type="submit" name="{{patron}}" value="delete">
+            </form>
+            <br>
+            {% endfor %}
+        </div>        
+    </body>
+</html>

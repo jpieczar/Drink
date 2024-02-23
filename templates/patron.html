@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang = "en">
+    <head>
+        <title>Patron {{ patron }}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <header>
+            <a href="/">Home</a>
+        </header>
+        <div class="main_div">
+            <div class="sub_div">
+                <h1>{{ patron }}'s drinking habits</h1>
+                {% if patron_saturation >= 1 %}
+                <p class="red_alert">{{ patron_id }}</p>
+                {% else %}
+                <p>{{ patron_id }}</p>
+                {% endif %}
+                <p>{{ patron_saturation }}</p>
+            </div>
+            <div class="sub_div">
+                <div>
+                    <form action="/add_drink" method="POST">
+                        <table>
+                            <tr><td>patron</td><td><input type="text" name="{{patron}}" placeholder="drink name"></td></tr>
+                            <tr><td><button type="submit">add</button></td></tr>
+                        </table>
+                    </form>
+                </div>
+                <table>
+                    <tr>
+                        <th>Price</th>
+                        <th>Drink</th>
+                    </tr>
+                    {% for drink in drink_list %}
+                    <tr>
+                        <td>{{ drink[0] }}</td>
+                        <td>{{ drink[1] }}</td>
+                        <td>
+                            <form action="/delete_drink" method="POST">
+                                <input type="submit" name="{{patron}}_{{drink[1]}}" value="delete">
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </body>
+</html>
