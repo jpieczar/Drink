@@ -1,5 +1,5 @@
 # Drink
-Patron alcohol consumptiopn task
+Patron alcohol consumption task
 
 # Web App Setup Guide
 
